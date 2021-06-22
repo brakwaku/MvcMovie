@@ -22,12 +22,13 @@ namespace MvcMovie.Controllers
         // GET: Movies
         public async Task<IActionResult> Index(string searchString, string sortBy)
         {
-
+            // LINQ Query syntax
             var movies = from m in _context.Movie
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
+                // LINQ Method syntax (Lamda expression)
                 movies = movies.Where(s => s.Title.Contains(searchString));
             }
 
@@ -114,6 +115,8 @@ namespace MvcMovie.Controllers
             {
                 return NotFound();
             }
+
+            ViewData["Genres"] = new SelectList(_context.Set<Genre>(), "GenreId", "GenreName");
             return View(movie);
         }
 

@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<MvcMovie.Models.Movie>
-@*@model MvcMovie.Models.MovieGenreViewModel*@
 
 @{
     ViewData["Title"] = "Movies";
@@ -20,8 +19,8 @@
         Title: <input type="text" name="SearchString" value="@ViewBag.SearchString" />
 
         Sort By:
-        <select name="sortBy" style="width: 120px">
-            <option value="">--Sekect--</option>
+        <select name="sortBy" value="@ViewBag.SortBy" style="width: 120px">
+            <option value="">--Select--</option>
             <option value="title">Title</option>
             <option value="releasedate">Release Date</option>
             <option value="genre">Genre</option>
